@@ -25,8 +25,12 @@ public class loginPage_Pageobjects extends commonMethods {
 	public  WebElement Loginbtton;
 	
 	
-	@FindBy(id="spnUserNameFulldd")
+	@FindBy(id="welcome")
 	public  WebElement userDropdown;
+	
+	
+	@FindBy(xpath="//a[text()='Logout']")
+	public WebElement lgout;
 	
 	@FindBy(id="spnLogout")
 	public   WebElement loGout;
@@ -48,6 +52,17 @@ public class loginPage_Pageobjects extends commonMethods {
 		commonMethods.settext(userName, Loginname);
 		commonMethods.settext(Upassword, Password);
 		commonMethods.Click(Loginbtton);
+			
+		
+	}
+	
+	public  void  verifyLogout()
+	{
+		
+		
+		
+		commonMethods.Click(userDropdown);
+		commonMethods.Click(loGout);
 			
 		
 	}
