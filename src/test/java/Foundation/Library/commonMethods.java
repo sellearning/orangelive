@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.relevantcodes.extentreports.LogStatus;
+
 import Foundation.factory.baseclass;
 
 
@@ -49,7 +51,8 @@ public class commonMethods extends baseclass {
 	   
 	    if (object == null)
 	    {
-	      System.out.println("Action: Status: Failed Message: Failed to retrieve the locator value.");
+	     // System.out.println("Action: Status: Failed Message: Failed to retrieve the locator value.");
+	      logger.log(LogStatus.INFO, "Action: Status: Failed Message: Failed to retrieve the locator value.");
 	      
 	      return 1;
 	    }
@@ -64,13 +67,15 @@ public class commonMethods extends baseclass {
 	    		 try
 	    		    {
 	    		       object.click();
-	    		     System.out.println("Action: Status: Passed  Message: The " + object + " is clicked successfully.");
+	    		     //System.out.println("Action: Status: Passed  Message: The " + object + " is clicked successfully.");
+	    		     logger.log(LogStatus.INFO, "Action: Status: Passed  Message: The " + object + " is clicked successfully.");
 	    		      return 0;
 	    		     
 	    		    }
 	    		    catch (Exception e)
 	    		    {
-	    		    	System.out.println("exception in click:" + e.getStackTrace() + "exception=" + e.getMessage().toString());
+	    		    	//System.out.println("exception in click:" + e.getStackTrace() + "exception=" + e.getMessage().toString());
+	    		    	 logger.log(LogStatus.INFO, "exception in click:" + e.getStackTrace() + "exception=" + e.getMessage().toString());
 	    		    }
 	    		  
 	    		     }
@@ -82,12 +87,12 @@ public class commonMethods extends baseclass {
 	    		}
 	    		catch(InterruptedException e1)
 	    		{
-	    			 System.out.println("Action: Status: waiting for the " + object + " to be displayed.");
-	    			
+	    			 //System.out.println("Action: Status: waiting for the " + object + " to be displayed.");
+	    			 logger.log(LogStatus.INFO, "Action: Status: waiting for the " + object + " to be displayed.");
 	    		}
 	    	}
-	     System.out.println("Action: " + object + "    " + "Status: Failed    " + "Message: The webedit does not exist , please verify");
-	    	
+	    // System.out.println("Action: " + object + "    " + "Status: Failed    " + "Message: The webedit does not exist , please verify");
+	     logger.log(LogStatus.INFO, "Action: " + object + "    " + "Status: Failed    " + "Message: The webedit does not exist , please verify");	
 	    
 	 }
 	     catch (Exception ex)
@@ -117,11 +122,13 @@ try
 	else
     {
       value = "";
-      System.out.println("Since a valid value for the parameter is not given, assuming the default value as a zero length empty string .");
+      //System.out.println("Since a valid value for the parameter is not given, assuming the default value as a zero length empty string .");
+      logger.log(LogStatus.INFO, "Since a valid value for the parameter is not given, assuming the default value as a zero length empty string .");
     }
 	if (object == null)
     {
-      System.out.println("Action: " + object + "    " + "Status: Failed    " + "Message: Failed to retrieve the locator value.");
+      //System.out.println("Action: " + object + "    " + "Status: Failed    " + "Message: Failed to retrieve the locator value.");
+      logger.log(LogStatus.INFO, "Action: " + object + "    " + "Status: Failed    " + "Message: Failed to retrieve the locator value.");
       
  return 1;
     }
@@ -135,12 +142,14 @@ try
 		  try{
 		  object.sendKeys(value);
 		 // System.out.println("Action: " + object + "    " + "Status: Passed    " + "Message: The value '" + value + "' is set successfully.");
-		  System.out.println("Action: " + object + "    " +"  Status: Passed  Message: The value  is set successfully.");
+		  //System.out.println("Action: " + object + "    " +"  Status: Passed  Message: The value  is set successfully.");
+		  logger.log(LogStatus.INFO, "Action: " + object + "    " +"  Status: Passed  Message: The value  is set successfully.");
 		   return 0;
 		  }
 		  catch (Exception e)
 		    {
-		    	System.out.println("exception in click:" + e.getStackTrace() + "exception=" + e.getMessage().toString());
+		    	//System.out.println("exception in click:" + e.getStackTrace() + "exception=" + e.getMessage().toString());
+		    	 logger.log(LogStatus.INFO, "exception in click:" + e.getStackTrace() + "exception=" + e.getMessage().toString());
 		    }
 		  
 	  }
@@ -149,7 +158,8 @@ try
 		  try
 		  {
 		  Thread.sleep(1000);
-		  System.out.println("Action:" + object + "    " + "Status: waiting for the " + object + " to be displayed.");
+		 // System.out.println("Action:" + object + "    " + "Status: waiting for the " + object + " to be displayed.");
+		  logger.log(LogStatus.INFO, "Action:" + object + "    " + "Status: waiting for the " + object + " to be displayed.");
 		  
 		  
 		  }
@@ -160,7 +170,8 @@ try
 	 }
   
 	  //System.out.println("Action: " + object + "    " + "Status: Failed    " + "Message: The webedit is  not enbaled , please verify");
-	  System.out.println("Action: Message: The webedit is  not enbaled , please verify");
+	  //System.out.println("Action: Message: The webedit is  not enbaled , please verify");
+	  logger.log(LogStatus.INFO,"Action: Message: The webedit is  not enbaled , please verify");
   }
 catch (Exception ex)
 {

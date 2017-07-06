@@ -14,9 +14,10 @@ public class login extends baseclass {
  @Test(priority=1,dataProvider="data")
   public static void verifyLoginPage(String name,String password) throws InterruptedException
   {
+	  logger=er.startTest("verifyLoginPage");
 	  loginPage_Pageobjects lg= PageFactory.initElements(driver, loginPage_Pageobjects.class);
 	  lg.verifyLoginpage(name, password);
-	 
+	 er.endTest(logger);
   
   }
  @DataProvider(name="data")

@@ -12,7 +12,9 @@ public class Logout extends baseclass {
   
   public void logout() 
   {
+	  logger=er.startTest("logout");
 	  loginPage_Pageobjects lg= PageFactory.initElements(driver, loginPage_Pageobjects.class);
 	  lg.verifyLogout();
+	  er.endTest(logger);
   }
 }
