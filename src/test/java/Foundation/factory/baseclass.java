@@ -15,7 +15,7 @@ public  static ExtentReports er;
  @BeforeSuite
 	 public static void report()
 	 {
-	er=new ExtentReports("C:\\Users\\home\\git\\orangelive\\Reports\\foubdation"+System.currentTimeMillis()+".html");
+	er=new ExtentReports("C:\\Users\\home\\git\\orangelive\\Reports\\foundation.html");
 	 }
 	
 	@BeforeClass
